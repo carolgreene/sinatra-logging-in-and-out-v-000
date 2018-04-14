@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  #can also do 
+  #can also do
   #post '/login' do
     #@user = User.find_by(:username => params[:username])
     #if @user != nil && @user.password == params[:password]
@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     #end
     #erb :error
   #end
-  
+
 
   get '/account' do
     if session[:user_id] == nil
@@ -38,6 +38,16 @@ class ApplicationController < Sinatra::Base
       erb :account
     end
   end
+
+  #can also do
+  #get '/account' do
+    #@current_user = User.find_by_id(session[:user_id])
+    #if @current_user
+      #erb :account
+    #else
+      #erb :error
+    #end
+  #end
 
   get '/logout' do
     session.clear
